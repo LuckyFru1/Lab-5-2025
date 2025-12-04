@@ -331,7 +331,6 @@ public class ArrayTabulatedFunction implements TabulatedFunction, Externalizable
         if (o instanceof ArrayTabulatedFunction) {
             otherArrayFunction = (ArrayTabulatedFunction) o;
         }
-        double epsilon = 1e-9;
     
         if (otherArrayFunction != null) {
             for (int i = 0; i < this.pointsCount; i++) {
@@ -340,7 +339,7 @@ public class ArrayTabulatedFunction implements TabulatedFunction, Externalizable
                 if (p1 == null || p2 == null) {
                     return false;
                 }
-                if (Math.abs(p1.getX() - p2.getX()) >= epsilon || Math.abs(p1.getY() - p2.getY()) >= epsilon) {
+                if (!p1.equals(p2)) {
                     return false;
                 }
             }
@@ -351,7 +350,7 @@ public class ArrayTabulatedFunction implements TabulatedFunction, Externalizable
                 if (p1 == null || p2 == null) {
                     return false;
                 }
-                if (Math.abs(p1.getX() - p2.getX()) >= epsilon || Math.abs(p1.getY() - p2.getY()) >= epsilon) {
+                if (!p1.equals(p2)) {
                     return false;
                 }
             }

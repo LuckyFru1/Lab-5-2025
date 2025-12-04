@@ -339,7 +339,6 @@ public class LinkedListTabulatedFunction implements TabulatedFunction,  Serializ
         if (o instanceof LinkedListTabulatedFunction) {
             otherLinkedListFunction = (LinkedListTabulatedFunction) o;
         }
-        double epsilon = 1e-9;
     
         if (otherLinkedListFunction != null) {
             for (int i = 0; i < this.pointsCount; i++) {
@@ -348,7 +347,7 @@ public class LinkedListTabulatedFunction implements TabulatedFunction,  Serializ
                 if (p1 == null || p2 == null) {
                     return false;
                 }
-                if (Math.abs(p1.getPoint().getX() - p2.getPoint().getX()) >= epsilon || Math.abs(p1.getPoint().getY() - p2.getPoint().getY()) >= epsilon) {
+                if (!p1.getPoint().equals(p2.getPoint())) {
                     return false;
                 }
             }
@@ -359,7 +358,7 @@ public class LinkedListTabulatedFunction implements TabulatedFunction,  Serializ
                 if (p1 == null || p2 == null) {
                     return false;
                 }
-                if (Math.abs(p1.getPoint().getX() - p2.getX()) >= epsilon || Math.abs(p1.getPoint().getY() - p2.getY()) >= epsilon) {
+                if (!p1.getPoint().equals(p2)) {
                     return false;
                 }
             }
